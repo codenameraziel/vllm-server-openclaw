@@ -1,6 +1,11 @@
 FROM python:3.10-slim
 
-RUN pip install --no-cache-dir vllm huggingface_hub
+# Atualiza pip e instala vllm na versão mais recente
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir --upgrade vllm huggingface_hub
+
+# Exibe a versão instalada do vllm
+RUN pip show vllm
 
 EXPOSE 8000
 
