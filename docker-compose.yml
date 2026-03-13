@@ -11,6 +11,5 @@ services:
       --model meta-llama/Llama-2-7b-chat-hf
       --port 8000
       --host 0.0.0.0
-      --device cpu
     ports:
       - "8000:8000"
