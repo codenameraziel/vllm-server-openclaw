@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  vllm:
+    build: ./vllm
+    container_name: vllm-server
+    environment:
+      - VLLM_LOGGING_LEVEL=DEBUG
+      - VLLM_DEVICE=cpu
+    command: >
+      python -m vllm.entrypoints.openai.api_server
+      --model meta-llama/Llama-2-7b-chat-hf
+      --port 8000
+      --host 0.0.0.0
+      --device cpu
+    ports:
+      - "8000:8000"
