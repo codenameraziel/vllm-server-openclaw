@@ -1,17 +1,16 @@
 version: "3.9"
 
 services:
-  vllm:
-    image: vllm/vllm-openai:latest
-    container_name: vllm
+  tgi:
+    image: ghcr.io/huggingface/text-generation-inference:latest
+    container_name: tgi
     ports:
       - "8000:8000"
     command: >
-      --model facebook/opt-1.3b
+      --model-id facebook/opt-1.3b
       --port 8000
-      --device cpu
     volumes:
-      - ./models:/models   # opcional, se quiser montar modelos locais
+      - ./models:/data   # opcional, se quiser montar modelos locais
     networks:
       - app_net
 
