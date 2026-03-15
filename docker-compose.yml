@@ -9,8 +9,9 @@ services:
     command: >
       --model-id facebook/opt-1.3b
       --port 8000
+      --device cpu
     volumes:
-      - ./models:/data   # opcional, se quiser montar modelos locais
+      - ./models:/data
     networks:
       - app_net
 
